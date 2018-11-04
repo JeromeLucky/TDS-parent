@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.tds.manager.dao.UserMapper">
+	<!-- 获取数据库当前时间 -->
+	<select id="queryDate" resultType="string">
+		SELECT NOW()
+	</select>
+	<!-- 用户信息 -->
+	<select id="findByaccount" resultType="cn.tds.manager.pojo.User" parameterType="string">
+		select * from user where account=#{account}
+	</select>
+	<insert id="addUser" parameterType="cn.tds.manager.pojo.User">
+		insert into user(name,age.account,password) values(#{name},#{age},#{account},#{password})
+	</insert>
+</mapper>
